@@ -1,28 +1,3 @@
-#################################
-# specific for QUALCOMM
-#################################
-
-#[user]
-#	name  = Fei Zhang
-#	email = feizhang@qti.qualcomm.com
-#	email = feizhang@codeaurora.org
-
-#	name  = Gaoxiang Chen
-#	email = gaochen@qti.qualcomm.com
-#	email = gaochen@codeaurora.org
-
-[review "review-android.quicinc.com"]
-	username = gaochen
-
-[url "ssh://git.quicinc.com:29418/"]
-    insteadOf = "git://git.quicinc.com/"
-    insteadOf = "git://git-android.quicinc.com/"
-    insteadOf = "git://review-android.quicinc.com/"
-
-[url "ssh://git.quicinc.com:29418/tools/repo"]
-    insteadOf = https://android.googlesource.com/tools/repo
-
-###################################
 
 [user]
 	name = Gaoxiang Chen
