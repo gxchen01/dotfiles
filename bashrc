@@ -104,7 +104,7 @@ fi
 #######################################
 
 # export ENVs
-export PS1="\[\e[1;32m\][\u@\h \w]\\$\[\e[0m\] "
+export PS1="\[\e[1;35m\][\u@\h \w]\\$\[\e[0m\] "
 export PATH=~/bin:$PATH:/sbin:/usr/sbin
 
 #alias
