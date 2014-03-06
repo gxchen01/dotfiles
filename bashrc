@@ -126,14 +126,14 @@ alias gd='git diff'
 alias gc='git commit'
 alias ga='git add'
 
-echo "======================="
+echo "======================================="
 echo "some git alias"
 alias gs
 alias gl
 alias gd
 alias gc
 alias ga
-echo "======================="
+echo "======================================="
 
 
 #colorful man page
@@ -159,7 +159,11 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 ########################################################
 
 #load extern functions
-#. ~/bin/qrd_help_functions
+__acd_sh__=~/bin/android_debug/acd.sh
+if [ -f "$__acd_sh__" ] ; then
+    source $__acd_sh__
+fi
+unset __acd_sh__
 
 # save a copy of 'mm' output to a temp file.
 #alias mm='mm | tee /tmp/mm_output.txt'
