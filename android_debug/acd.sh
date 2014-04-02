@@ -23,7 +23,7 @@
 # declare sub modules list and it's abbreviation(s).
 #
 declare -A SUB_MODULE_LIST
-SUB_MODULE_LIST['camera_apk']='packages/apps/Camera'
+SUB_MODULE_LIST['camera_apk']='packages/apps/Camera2'
 SUB_MODULE_LIST['gallery_apk']='packages/apps/Gallery2'
 SUB_MODULE_LIST['camera_hal']='hardware/qcom/camera'
 SUB_MODULE_LIST['mm_camera']='vendor/qcom/proprietary/mm-camera'
@@ -36,8 +36,8 @@ SUB_MODULE_LIST['frameworks_av']='frameworks/av'
 SUB_MODULE_LIST['output']='out/target/product/msm8610'
 
 declare -A MOD_ABBR_DICT
-MOD_ABBR_DICT['camera_apk']='app apk'
-MOD_ABBR_DICT['gallery_apk']='pic'
+MOD_ABBR_DICT['camera_apk']='cam app apk'
+MOD_ABBR_DICT['gallery_apk']='pic gal'
 MOD_ABBR_DICT['camera_hal']='hal'
 MOD_ABBR_DICT['mm_camera']='mm'
 MOD_ABBR_DICT['mm_core']='core'
