@@ -157,13 +157,20 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 ########################################################
 ## for android debug
 ########################################################
+__ENABLE_ANDROID_DEBUG="enable"
 
-#load extern functions
-__acd_sh__=~/bin/android_debug/acd.sh
-if [ -f "$__acd_sh__" ] ; then
-    source $__acd_sh__
+# we can use a flag to decide whether to import scripts for andoid debug or not.
+# like a macro in C/C++
+# and we can move all related scripts/function to those files.
+#
+if [ -n "$__ENABLE_ANDROID_DEBUG" ] ; then
+    __ANDROID_DBG_ROOT=~/bin/android_debug
+    echo "load android debug functions..."
+    if [ -d "$__ANDROID_DBG_ROOT" ] ; then
+        for _file in $__ANDROID_DBG_ROOT/*.rc ; do
+            echo "[including rc file] $_file"
+            source $_file
+        done
+    fi
 fi
-unset __acd_sh__
 
-# save a copy of 'mm' output to a temp file.
-#alias mm='mm | tee /tmp/mm_output.txt'

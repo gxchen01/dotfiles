@@ -1,0 +1,81 @@
+#!/bin/bash
+
+MM_OUTPUT_FILE="/tmp/mm_output.txt"
+MM_OUTPUT_FILE_FILTER='/tmp/mm_output_filter.txt'
+
+OS_TYPE='win7'
+
+# we use function instead of alias, so that
+# we can pass arguments to mm.
+# for example, 'mm -B' or 'mm -j8'
+amm () {
+    echo $@
+
+    mm $@ | tee $MM_OUTPUT_FILE
+
+    mmgrep
+
+    rm $MM_OUTPUT_FILE
+    rm $MM_OUTPUT_FILE_FILTER
+}
+
+mmgrep () {
+
+    # will output line like this after execute following cmd:
+    # > out/target/product/msm8974/system/app/Gallery2.apk
+    # > out/target/product/msm8974/system/lib/hw/camera.msm8974.so
+    #
+    #  grep -E "^Install:" $MM_OUTPUT_FILE | awk '{print $2}' | tee /tmp/mm_output_filter.txt
+
+    # we can use reg-exp with 'sed' or simply 'cut' cmd to delete string 'out/target/product/'
+    # sed -i 's/^out\/target\/product\/[^/]*\///' /tmp/mm_output_filter.txt
+    # cat /tmp/mm_output_filter.txt | cut -d'/' -f5- > /tmp/mm_output_filter1.txt
+
+    #combine above two commands together:
+    grep -E "^Install:" $MM_OUTPUT_FILE | awk '{print $2}' | cut -d'/' -f5- > ${MM_OUTPUT_FILE_FILTER}
+
+    echo "################################"
+    echo "Files need to be updated."
+    echo "################################"
+    cat ${MM_OUTPUT_FILE_FILTER}
+
+    echo ""
+    echo "################################"
+    echo "Adb push commands"
+    echo "################################"
+
+    for line in $(cat ${MM_OUTPUT_FILE_FILTER}) ; do
+	    #echo "[DBG] for line: $line"
+	    path=$(dirname $line)
+	    filename=$(basename $line)
+	    #echo "[DBG] path: $path, filename: $filename"
+
+	    # construc the adb command, we need convert '/' to '\' in windows.
+	    if [ -n "${OS_TYPE}" ] ; then
+		    echo "adb push ${path//\//\\}\\${filename} /${path}/"
+	    else
+		    echo "adb push $line /${path}/"
+	    fi
+
+	    if echo "${line}" | grep -q "/bin/" ; then
+		    #echo "[DBG] executable file, add 'x' permission"
+		    echo "adb shell chmod 777 /$line"
+	    fi
+    done
+
+    # add adb reboot
+    echo "adb reboot"
+}
+
+
+agrep()
+{
+	grep "$@" * -rn --exclude-dir=".git" --color=auto
+}
+
+afind()
+{
+	find . -name  "$@"
+}
+
+
