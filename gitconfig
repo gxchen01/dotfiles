@@ -1,11 +1,13 @@
 
 [user]
-	name = Gaoxiang Chen
-	email = gxchen01@gmail.com
+    name = Gaoxiang Chen
+    email = gxchen01@gmail.com
 
 [core]
-	editor = vim
-	filemode = false
+    editor     = vim
+    filemode   = false
+    autocrlf   = input
+    whitespace = trailing-space,space-before-tab,indent-with-non-tab
 
 [color]
     ui     = auto
