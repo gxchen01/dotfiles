@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnalyseDoc xsi:noNamespaceSchemaLocation="./AnalyseDoc.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<SearchText color="green">Opening camera</SearchText>
+	<SearchText color="green">PROFILE_OPEN_CAMERA</SearchText>
+	<SearchText color="green">mm_camera_open</SearchText>
+	<SearchText color="blue">QCamera2HardwareInterface::start_preview</SearchText>
+	<SearchText color="grey">mct_pipeline_add_stream_to_linked_streams</SearchText>
+	<SearchText color="grey">mct_stream_start_link</SearchText>
+	<SearchText color="blue">QCamera2HardwareInterface::startPreview()</SearchText>
+	<SearchText color="blue">PROFILE_FIRST_PREVIEW_FRAME</SearchText>
+	<SearchText color="deepPurple">PROFILE_TAKE_PICTURE</SearchText>
+	<SearchText color="deepPurple">QCamera2HardwareInterface::takePicture</SearchText>
+	<SearchText color="deepPurple">capture_channel_cb_routine</SearchText>
+	<SearchText color="orange">pproc_module_handle_reprocess_online</SearchText>
+	<SearchText color="orange">postproc_channel_cb_routine</SearchText>
+	<SearchText color="red">PROFILE_JPEG</SearchText>
+	<SearchText comment="fatal error: segment fault" bgColor="yellow" matchCase="true">SEGV</SearchText>
+</AnalyseDoc>
+
