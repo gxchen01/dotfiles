@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AnalyseDoc xsi:noNamespaceSchemaLocation="./AnalyseDoc.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<SearchText color="green">Opening camera</SearchText>
+	<SearchText color="grey">SENSOR_SET_RESOLUTION</SearchText>
+	<SearchText matchCase="true" color="grey" bgColor="yellow">ANR</SearchText>
 	<SearchText color="green">PROFILE_OPEN_CAMERA</SearchText>
 	<SearchText color="green">mm_camera_open</SearchText>
 	<SearchText color="blue">QCamera2HardwareInterface::start_preview</SearchText>
