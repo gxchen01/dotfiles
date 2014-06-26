@@ -23,7 +23,3 @@ for file in ${DOT_FILES[@]}; do
     ln -fs ${cur_dir}/${file} ${DST_LOCATION}/.${file}
 done
 
-if [ ! -e ~/bin/android_debug ] ; then
-    mkdir -p ~/bin/android_debug
-    ln -fs ${cur_dir}/android_debug/acd.sh ${DST_LOCATION}/bin/android_debug/acd.sh
-fi
