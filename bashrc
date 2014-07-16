@@ -174,3 +174,8 @@ if [ -n "$__ENABLE_ANDROID_DEBUG" ] ; then
     fi
 fi
 
+if [ "$(hostname)" == "gaochen-gv" ] ; then
+    alias cx='cd /local/mnt/workspace/project'
+    alias cl='cd /local/mnt/workspace/tmp/Logs/'
+fi
+
