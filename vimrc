@@ -10,6 +10,8 @@ set mouse=a
 set selection=exclusive
 set selectmode=mouse,key
 
+set paste
+
 "don't bakup the file
 set nobackup
 set nowb
